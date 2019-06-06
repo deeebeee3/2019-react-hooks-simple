@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-//props.resource destructured to resource - will either be 'posts' or 'todos'
-const ResourceList = ({ resource }) => {
+const useResources = resource => {
   const [resources, setResources] = useState([]);
 
   //useEffect will always be called whenever component rendered
@@ -19,6 +18,13 @@ const ResourceList = ({ resource }) => {
       setResources(response.data);
     })(resource);
   }, [resource]);
+
+  return resources;
+};
+
+//props.resource destructured to resource - will either be 'posts' or 'todos'
+const ResourceList = ({ resource }) => {
+  const resources = useResources(resource);
 
   return (
     <ul>
