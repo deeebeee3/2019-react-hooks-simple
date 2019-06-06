@@ -16,7 +16,8 @@ const ResourceList = ({resource}) => {
   //useEffect will always be called whenever component rendered
   //when component first gets rendered - the inner function will run 
   //between subsequent renders, if the value in the array (second arg) is different - the inner function will run
-  //basically everytime component is rendered...
+  //if a second argument is not provided (array) then the inner function will run 100% of the time...
+  //so no array - 100% of time, an empty array - one time, an array with resource - runs only if different
   useEffect(()=> {
       fetchResource(resource);
   }, [resource]);
