@@ -1,16 +1,15 @@
 import React, { useState } from "react";
+import ResourceList from "./ResourceList";
 
 const App = () => {
-
-  //array destructuring  
+  //array destructuring
   const [resource, setResource] = useState("posts");
 
-  //another example 
+  //another example
   //const [currentCount, setCount] = useState(0);
 
   //object destructuring
   //const { something } = this.state;
-
 
   //using setResource will cause component to automatically rerender
   return (
@@ -19,7 +18,7 @@ const App = () => {
         <button onClick={() => setResource("posts")}>Posts</button>
         <button onClick={() => setResource("todos")}>Todos</button>
       </div>
-      {resource}
+      <ResourceList resource={resource} />
     </div>
   );
 };
